@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-You said:
-
-{{ text }}
+{% for entry in entries %}
+	{{ entry[0] }} {{ entry[1] }} </br>
+{% endfor %}
 {% endblock %}
