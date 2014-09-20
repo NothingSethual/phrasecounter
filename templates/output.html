@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-<script src="{{ url_for('static', filename='js/chartjs/Chart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chartnewjs/ChartNew.js') }}"></script>
 
 
     <div style="width: 100%">
@@ -19,7 +19,8 @@
         strokeColor : "rgba(220,220,220,1)",
         highlightFill: "rgba(220,220,220,1)",
         highlightStroke: "rgba(220,220,220,1)",
-        data : [{{ freq }}]
+        data : [{{ freq }}],
+        title: "Frequency"
       }
     ]
 
@@ -27,7 +28,10 @@
   window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myBar = new Chart(ctx).HorizontalBar(barChartData, {
-      responsive : true
+      xAxisBottom: false,
+      graphTitle: "Phrase frequency",
+      scaleShowGridLines : false,
+      inGraphDataShow: true
     });
   }
 
