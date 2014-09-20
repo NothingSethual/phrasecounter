@@ -12,7 +12,15 @@ def app_page():
             int(request.form['num_words']))
         labels = ", ".join('"'+entry[1]+'"' for entry in entries)
         freq = ", ".join(str(entry[0]) for entry in entries)
-        return render_template('output.html', labels=labels, freq=freq)
+        text_title = request.form['text_title']
+        num_words = request.form['num_words']
+        if len(entries) < 10:
+            chart_title = "Phrase frequency"
+        else:
+            chart_title = "Phrase frequency (top 10)"
+        return render_template('output.html', labels=labels, freq=freq, 
+                               entries=entries, chart_title=chart_title,
+                               text_title=text_title, num_words=num_words)
     else:
         return render_template('input.html')
 

@@ -2,6 +2,10 @@
 {% block body %}
 <form name="phrase_input" method="post" action="/">
 	<div class="form-group">
+		<label for="text_title">Title</label>
+		<input type="text" name="text_title" class="form-control"></input>
+	</div>
+	<div class="form-group">
 		<label for="text">Text</label>
 		<textarea name="text" class="form-control" rows="6"></textarea>
 	</div>
@@ -9,6 +13,6 @@
 		<label for="num_words">Number of words in phrase</label>
 		<input type="text" name="num_words" class="form-control"></input>
 	</div>
-	<input type="submit" value="Submit" class="btn btn-default">
+	<input type="submit" value="Count phrases" class="btn btn-default">
 </form>
 {% endblock %}
