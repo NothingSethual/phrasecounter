@@ -16,7 +16,7 @@
       title: '{{ chart_title }}',
       hAxis: {minValue: 0, gridlines: {color: 'transparent'}, textPosition: 'none'},
       legend: {position: 'none'},
-      chartArea: {height: '90%', top: '8%'}
+      chartArea: {height: '90%', top: '8%', width:'70%', left: '30%'}
     };
 
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -41,6 +41,10 @@
 <hr />
 <h3>Try some new text</h3>
 <form name="phrase_input" method="post" action="/">
+  <div class="form-group">
+    <label for="text_title">Title</label>
+    <input type="text" name="text_title" class="form-control"></input>
+  </div>
   <div class="form-group">
     <label for="text">Text</label>
     <textarea name="text" class="form-control" rows="6"></textarea>

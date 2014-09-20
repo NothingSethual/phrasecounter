@@ -18,7 +18,7 @@ def app_page():
             chart_title = "Phrase frequency"
         else:
             chart_title = "Phrase frequency (top 10)"
-        return render_template('output.html', labels=labels, freq=freq, 
+        return render_template('output.html', labels=labels, freq=freq,
                                entries=entries, chart_title=chart_title,
                                text_title=text_title, num_words=num_words)
     else:
