@@ -1,1 +1,1 @@
-web: gunicorn hello:app --log-file=-
+web: gunicorn phrase_counter:app --log-file=-
