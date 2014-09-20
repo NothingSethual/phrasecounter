@@ -10,7 +10,9 @@ def app_page():
         entries = text_to_counted_phrases(
             request.form['text'],
             int(request.form['num_words']))
-        return render_template('output.html', entries=entries)
+        labels = ", ".join('"'+entry[1]+'"' for entry in entries)
+        freq = ", ".join(str(entry[0]) for entry in entries)
+        return render_template('output.html', labels=labels, freq=freq)
     else:
         return render_template('input.html')
 
