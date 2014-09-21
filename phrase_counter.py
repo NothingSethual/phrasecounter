@@ -7,18 +7,15 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def app_page():
     if request.method == 'POST':
-        entries = text_to_counted_phrases(
-            request.form['text'],
-            int(request.form['num_words']))
-        labels = ", ".join('"'+entry[1]+'"' for entry in entries)
-        freq = ", ".join(str(entry[0]) for entry in entries)
-        text_title = request.form['text_title']
-        num_words = request.form['num_words']
+        num_words = int(request.form['num_words'] or 4)
+        text = request.form['text'] or "Try entering some text. Try entering some text."
+        text_title = request.form['text_title'] or "your text"
+        entries = text_to_counted_phrases(text, num_words)
         if len(entries) < 10:
             chart_title = "Phrase frequency"
         else:
             chart_title = "Phrase frequency (top 10)"
-        return render_template('output.html', labels=labels, freq=freq,
+        return render_template('output.html',
                                entries=entries, chart_title=chart_title,
                                text_title=text_title, num_words=num_words)
     else:
@@ -52,4 +49,4 @@ def text_to_counted_phrases(text, num_words):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
