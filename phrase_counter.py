@@ -49,4 +49,4 @@ def text_to_counted_phrases(text, num_words):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
