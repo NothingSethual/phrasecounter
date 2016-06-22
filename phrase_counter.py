@@ -11,7 +11,7 @@ def app_page():
         text = request.form['text'] or "Try entering some text. Try entering some text."
         text_title = request.form['text_title'] or "your text"
         entries = text_to_counted_phrases(text, num_words)
-        if len(entries) < 10:
+        if len(entries) < 15:
             chart_title = "Phrase frequency"
         else:
             chart_title = "Phrase frequency (top 10)"
